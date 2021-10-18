@@ -13,7 +13,13 @@ class Comics extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('comics', function (Blueprint $table) {
+            $table->bigIncrements('id_comics');
+            $table->string('title');
+            $table->string('description');
+            $table->string('ean');
+            $table->decimal('prices', 8, 2);
+        });
     }
 
     /**
@@ -23,6 +29,6 @@ class Comics extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('comics');
     }
 }
